@@ -6,6 +6,8 @@ const merge = require('webpack-merge');
 const common = require('./webpack.base.js');
 // 打包之前清除文件
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+let MiniCssExtractPlugin=require("mini-css-extract-plugin");
 module.exports = merge(common, {
         mode: 'production',
         output: {
@@ -14,6 +16,11 @@ module.exports = merge(common, {
         },
         module: {},
         plugins: [
+               /* 提取单独打包css文件 */
+        new MiniCssExtractPlugin({
+                filename: "[name].css",
+                chunkFilename: "[id].css"
+            }),
             new CleanWebpackPlugin() //打包前先清空
         ]
 
