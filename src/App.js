@@ -21,7 +21,7 @@ class App extends React.Component {
                 <Animate animation={{
                     enter: 'my-zoom-in',
                     leave: 'my-zoom-out'
-                }}>y
+                }}>
                     {this.state.visible ?
                         <div className="basic-demo">Next Animate</div> :
                         null}
